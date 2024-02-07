@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $spreadsheetId = '1iC3BUM-cCSRuSkD8JwMWCJJp1ovgdlxGi22Nmwl_7B8';
 
     // Google Sheets API endpoint
-    $url = "https://script.google.com/macros/s/AKfycbzrwkZyL7ED3ppdlXEjLMGa8pU-vdZONw45EnGJR5zF/exec";
+    $url = "https://script.google.com/macros/s/AKfycbxM_IcTGvsJ9d363tTiypVpK0ihbjkoN4LRU91lEEf0jgzkA_10dTNNeGaRgi4C5BsAXw/exec";
 
     // Prepare data for POST request
     $postData = http_build_query(
