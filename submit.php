@@ -5,11 +5,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $email = $_POST['email'];
 
-    // Replace 'YOUR_SPREADSHEET_ID' with your actual Google Sheets ID
-    $spreadsheetId = '1iC3BUM-cCSRuSkD8JwMWCJJp1ovgdlxGi22Nmwl_7B8';
-
-    // Google Sheets API endpoint
-    $url = "https://script.google.com/macros/s/AKfycbxM_IcTGvsJ9d363tTiypVpK0ihbjkoN4LRU91lEEf0jgzkA_10dTNNeGaRgi4C5BsAXw/exec";
+    // Replace 'YOUR_GOOGLE_SCRIPT_URL' with the URL of your Google Apps Script web app endpoint
+    $url = 'https://script.google.com/macros/s/AKfycbxM_IcTGvsJ9d363tTiypVpK0ihbjkoN4LRU91lEEf0jgzkA_10dTNNeGaRgi4C5BsAXw/exec';
 
     // Prepare data for POST request
     $postData = http_build_query(
@@ -24,19 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-    // Execute the request and handle errors
     $response = curl_exec($ch);
-    if ($response === false) {
-        $error = curl_error($ch);
-        echo json_encode(array("error" => $error));
-    } else {
-        // Output response
-        echo $response;
-    }
-
-    // Close cURL session
     curl_close($ch);
+
+    // Output response
+    echo $response;
 } else {
     // Invalid request method
     http_response_code(405);
