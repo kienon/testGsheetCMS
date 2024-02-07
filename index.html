@@ -4,46 +4,10 @@
   <title>Your Form Title</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <h1>Your Form</h1>
-  <form id="myForm" action="https://script.google.com/macros/s/AKfycbx7eb3sP7FPawOHvjIXSq5yx7Cy83KQ0sWnU_nkHaVv0lLv_VuKbS00uLJyhuR6Ew0gNg/exec" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required><br>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br>
-
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" required></textarea><br>
-
-    <button type="submit">Submit</button>
-  </form>
 
   <script>
-    document.getElementById('myForm').addEventListener('submit', async (event) => {
-      event.preventDefault();
-
-      // Get form data
-      const formData = new FormData(event.target);
-
-      // Send data to App Script with error handling
-      try {
-        const response = await fetch(event.target.action, {
-          method: 'POST',
-          body: formData,
-        });
-
-        if (response.ok) {
-          alert('Form submitted successfully!');
-          // Optionally clear the form or redirect
-          event.target.reset();
-        } else {
-          throw new Error(`Error submitting form: ${await response.text()}`);
-        }
-      } catch (error) {
-        alert(`Error: ${error.message}`);
-      }
-    });
+    const res = await fetch("https://script.google.com/macros/s/AKfycbx7eb3sP7FPawOHvjIXSq5yx7Cy83KQ0sWnU_nkHaVv0lLv_VuKbS00uLJyhuR6Ew0gNg/exec");
+const {data} = await res.json();
   </script>
 </body>
 </html>
