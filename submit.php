@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
 
     // Replace 'YOUR_SPREADSHEET_ID' with your actual Google Sheets ID
-    $spreadsheetId = 'AKfycbxM_IcTGvsJ9d363tTiypVpK0ihbjkoN4LRU91lEEf0jgzkA_10dTNNeGaRgi4C5BsAXw';
+    $spreadsheetId = '1iC3BUM-cCSRuSkD8JwMWCJJp1ovgdlxGi22Nmwl_7B8';
 
     // Google Sheets API endpoint
     $url = "https://script.google.com/macros/s/AKfycbxM_IcTGvsJ9d363tTiypVpK0ihbjkoN4LRU91lEEf0jgzkA_10dTNNeGaRgi4C5BsAXw/exec";
