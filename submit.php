@@ -24,11 +24,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($ch);
-    curl_close($ch);
 
-    // Output response
-    echo $response;
+    // Execute the request and handle errors
+    $response = curl_exec($ch);
+    if ($response === false) {
+        $error = curl_error($ch);
+        echo json_encode(array("error" => $error));
+    } else {
+        // Output response
+        echo $response;
+    }
+
+    // Close cURL session
+    curl_close($ch);
 } else {
     // Invalid request method
     http_response_code(405);
